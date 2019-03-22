@@ -16,7 +16,7 @@
         var macarte = null;
         var markerClusters; // Servira à stocker les groupes de marqueurs
         // Nous initialisons une liste de marqueurs
-        var villes = {
+        var hippodromes = {
             "Hippodrome d'Abbeville": {
                 "lat": 50.0915,
                 "lon": 1.8184099999999717
@@ -210,8 +210,20 @@
                 "lon": -0.8991070195434077
             },
         };
+        var villes = {
+            "Barcelone": {
+                "lat": 41.3828939,
+                "lon": 2.1774322
+            },
+            "Dublin": {
+                "lat": 53.3497645,
+                "lon": -6.2602732
+            },
+        };
         // Fonction d'initialisation de la carte
         function initMap() {
+            // Nous définissons le dossier qui contiendra les marqueurs
+            var iconBase = 'https://cdn.icon-icons.com/icons2/317/PNG/512/map-marker-icon_34392.png';
             var markers = []; // Nous initialisons la liste des marqueurs
             // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
             macarte = L.map('map').setView([lat, lon], 6);
@@ -224,12 +236,27 @@
                 maxZoom: 20
             }).addTo(macarte);
             // Nous parcourons la liste des villes
-            for (ville in villes) {
-                var marker = L.marker([villes[ville].lat, villes[ville].lon]);
+            for (hippodrome in hippodromes) {
+                var marker = L.marker([hippodromes[hippodrome].lat, hippodromes[hippodrome].lon]);
                 // Nous ajoutons la popup. A noter que son contenu (ici la variable ville) peut être du HTML
-                marker.bindPopup(ville);
+                marker.bindPopup(hippodrome);
                 markerClusters.addLayer(marker); // Nous ajoutons le marqueur aux groupes
                 markers.push(marker); // Nous ajoutons le marqueur à la liste des marqueurs
+            }
+            for (ville in villes) {
+                // Nous définissons l'icône à utiliser pour le marqueur, sa taille affichée (iconSize), sa position (iconAnchor) et le décalage de son ancrage (popupAnchor)
+                var myIcon = L.icon({
+                    iconUrl: 'https://cdn.icon-icons.com/icons2/317/PNG/512/map-marker-icon_34392.png',
+                    iconSize: [50, 50],
+                    iconAnchor: [25, 50],
+                    popupAnchor: [-3, -76],
+                });
+                var markerVille = L.marker([villes[ville].lat, villes[ville].lon], {
+                    icon: myIcon
+                });
+                markerVille.bindPopup(ville);
+                markerClusters.addLayer(markerVille);
+                markers.push(markerVille);
             }
             var group = new L.featureGroup(markers); // Nous créons le groupe des marqueurs pour adapter le zoom
             macarte.fitBounds(group.getBounds().pad(0.5)); // Nous demandons à ce que tous les marqueurs soient visibles, et ajoutons un padding (pad(0.5)) pour que les marqueurs ne soient pas coupés
