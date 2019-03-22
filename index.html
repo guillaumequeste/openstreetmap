@@ -10,7 +10,7 @@
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
     <script type='text/javascript' src='https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js'></script>
     <script type="text/javascript">
-        // On initialise la latitude et la longitude de Paris (centre de la carte)
+        // On initialise la latitude et la longitude du centre de la carte
         var lat = 47.081012;
         var lon = 2.398782;
         var macarte = null;
@@ -211,13 +211,45 @@
             },
         };
         var villes = {
+            "Amiens": {
+                "lat": 49.8941708,
+                "lon": 2.2956951
+            },
+            "Arcachon": {
+                "lat": 44.6539428,
+                "lon": -1.1755714
+            },
             "Barcelone": {
                 "lat": 41.3828939,
                 "lon": 2.1774322
             },
+            "Bayeux": {
+                "lat": 49.2764624,
+                "lon": -0.7024738
+            },
+            "Beauvais": {
+                "lat": 49.4300997,
+                "lon": 2.0823355
+            },
+            "Bedford": {
+                "lat": 52.1363806,
+                "lon": -0.4675041
+            },
             "Bordeaux": {
                 "lat": 44.841225,
                 "lon": -0.5800364
+            },
+            "Busnes": {
+                "lat": 50.5878916,
+                "lon": 2.5184705
+            },
+            "Céret": {
+                "lat": 42.485804,
+                "lon": 2.7488069
+            },
+            "Château de Vaux-le-Vicomte": {
+                "lat": 48.5658,
+                "lon": 2.714150000000018
             },
             "Clermont-Ferrand": {
                 "lat": 45.7797,
@@ -227,13 +259,29 @@
                 "lat": 53.3497645,
                 "lon": -6.2602732
             },
+            "Dune du Pilat": {
+                "lat": 44.5889,
+                "lon": -1.2140699999999924
+            },
+            "Figueras": {
+                "lat": 42.2666314,
+                "lon": 2.9638434
+            },
             "Gallargues-le-Montueux": {
                 "lat": 43.7211,
                 "lon": 4.172839999999951
             },
+            "Gerberoy": {
+                "lat": 49.5359126,
+                "lon": 1.8493913
+            },
             "La Grande-Motte": {
                 "lat": 43.5605,
                 "lon": 4.085100000000011
+            },
+            "Le Havre": {
+                "lat": 49.4938975,
+                "lon": 0.1079732
             },
             "Le Puy-en-Velay": {
                 "lat": 45.0432,
@@ -246,6 +294,38 @@
             "Montpellier": {
                 "lat": 43.5985,
                 "lon": 3.8968700000000354
+            },
+            "Narbonne": {
+                "lat": 43.1837661,
+                "lon": 3.0042121
+            },
+            "Paris": {
+                "lat": 48.8566101,
+                "lon": 2.3514992
+            },
+            "Puy de Dôme": {
+                "lat": 45.771799458104674,
+                "lon": 2.9626375827782567
+            },
+            "Rennes": {
+                "lat": 48.1113387,
+                "lon": -1.6800198
+            },
+            "Roses": {
+                "lat": 42.2632018,
+                "lon": 3.1755328
+            },
+            "Rouen": {
+                "lat": 49.4404591,
+                "lon": 1.0939658
+            },
+            "Versailles": {
+                "lat": 48.8035403,
+                "lon": 2.1266886
+            },
+            "Volcan de Lemptégy": {
+                "lat": 45.8154,
+                "lon": 2.947300000000041
             }
         };
         // Fonction d'initialisation de la carte
@@ -265,7 +345,15 @@
             }).addTo(macarte);
             // Nous parcourons la liste des villes
             for (hippodrome in hippodromes) {
-                var marker = L.marker([hippodromes[hippodrome].lat, hippodromes[hippodrome].lon]);
+                var hippodromeIcon = L.icon({
+                    iconUrl: 'marker.png',
+                    iconSize: [50, 50], // size of the icon
+                    iconAnchor: [25, 50], // point of the icon which will correspond to marker's location
+                    popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+                });
+                var marker = L.marker([hippodromes[hippodrome].lat, hippodromes[hippodrome].lon], {
+                    icon: hippodromeIcon
+                });
                 // Nous ajoutons la popup. A noter que son contenu (ici la variable ville) peut être du HTML
                 marker.bindPopup(hippodrome);
                 markerClusters.addLayer(marker); // Nous ajoutons le marqueur aux groupes
@@ -273,14 +361,14 @@
             }
             for (ville in villes) {
                 // Nous définissons l'icône à utiliser pour le marqueur, sa taille affichée (iconSize), sa position (iconAnchor) et le décalage de son ancrage (popupAnchor)
-                var myIcon = L.icon({
-                    iconUrl: 'https://cdn.icon-icons.com/icons2/317/PNG/512/map-marker-icon_34392.png',
+                var villeIcon = L.icon({
+                    iconUrl: 'marqueur.png',
                     iconSize: [50, 50],
                     iconAnchor: [25, 50],
                     popupAnchor: [-3, -76],
                 });
                 var markerVille = L.marker([villes[ville].lat, villes[ville].lon], {
-                    icon: myIcon
+                    icon: villeIcon
                 });
                 markerVille.bindPopup(ville);
                 markerClusters.addLayer(markerVille);
@@ -291,7 +379,6 @@
             macarte.addLayer(markerClusters);
         }
         window.onload = function() {
-            // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
             initMap();
         };
     </script>
@@ -310,10 +397,20 @@
             color: black;
         }
         
+        img {
+            width: 2%;
+        }
+        
         #map {
             /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
-            height: 85vh;
+            height: 80vh;
             width: 95vw;
+        }
+        
+        #tahiti {
+            position: fixed;
+            top: 5%;
+            right: 5%;
         }
     </style>
     <title>Carte</title>
@@ -321,10 +418,14 @@
 
 <body>
     <div id="page">
-        <h1>Lieux visités</h1>
+        <h1>Voyages</h1>
+        <p><img src="marker.png">hippodromes <img src="marqueur.png">villes ou lieux</p>
         <div id="map">
             <!-- Ici s'affichera la carte -->
         </div>
+    </div>
+    <div id="tahiti">
+        <a href="tahiti.html">Tahiti</a>
     </div>
 </body>
 

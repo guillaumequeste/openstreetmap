@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
+    <script type="text/javascript" src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+</head>
+
+<body onload="initialize()">
+    <div id="map" style="width:100%; height:100%"></div>
+</body>
+
+</html>
+<script type="text/javascript">
+    function initialize() {
+        var map = L.map('map').setView([-16.2, -149], 8);
+
+        var osmLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors',
+            maxZoom: 19
+        });
+
+        var papeete = L.marker([-17.5384014, -149.5661868]).addTo(map);
+        var moorea = L.marker([-17.5332608, -149.8386247]).addTo(map);
+        var tikehau = L.marker([-15.0051137, -148.2270645]).addTo(map);
+
+        papeete.bindPopup(`<b>Papeete</b><br><img src="papeete.jpg" style="width:100%;">`);
+        moorea.bindPopup(`<b>Moorea</b><br><img src="moorea.jpg" style="width:100%;">`);
+        tikehau.bindPopup(`<b>Tikehau</b><br><img src="tikehau.jpg" style="width:100%;">`);
+
+
+        map.addLayer(osmLayer);
+    }
+</script>
