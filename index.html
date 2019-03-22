@@ -241,17 +241,35 @@
         };
     </script>
     <style type="text/css">
+        body {
+            display: flex;
+            background-color: rgb(150, 149, 151);
+        }
+        
+        #page {
+            margin: auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: black;
+        }
+        
         #map {
             /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
-            height: 700px;
+            height: 85vh;
+            width: 95vw;
         }
     </style>
     <title>Carte</title>
 </head>
 
 <body>
-    <div id="map">
-        <!-- Ici s'affichera la carte -->
+    <div id="page">
+        <h1>Hippodromes visités</h1>
+        <div id="map">
+            <!-- Ici s'affichera la carte -->
+        </div>
     </div>
 </body>
 
