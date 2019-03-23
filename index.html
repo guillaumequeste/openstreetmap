@@ -17,6 +17,26 @@
         var markerClusters; // Servira à stocker les groupes de marqueurs
         // Nous initialisons une liste de marqueurs
         var hippodromes = {
+            "Centre d'entraînement de Chantilly": {
+                "lat": 49.18180000000002,
+                "lon": 2.4464028570556593
+            },
+            "Centre d'entraînement de Grosbois": {
+                "lat": 48.73354973317712,
+                "lon": 2.525852624429376
+            },
+            "Centre d'entraînement de Maisons-Laffitte": {
+                "lat": 48.96590683024357,
+                "lon": 2.146924421668359
+            },
+            "Ecurie Aurmath": {
+                "lat": 48.76953285107461,
+                "lon": 0.260800643734342
+            },
+            "Haras de la Hétraie": {
+                "lat": 49.190111679092624,
+                "lon": -0.9194701786860833
+            },
             "Hippodrome d'Abbeville": {
                 "lat": 50.0915,
                 "lon": 1.8184099999999717
@@ -307,6 +327,18 @@
                 "lat": 48.4438601,
                 "lon": 1.4881434
             },
+            "Château de Carrouges": {
+                "lat": 48.5601218998163,
+                "lon": -0.1542677972919364
+            },
+            "Château de Maisons-Laffitte": {
+                "lat": 48.9471671045817,
+                "lon": 2.1538567543029785
+            },
+            "Château de Miromesnil": {
+                "lat": 49.8612032,
+                "lon": 1.0818454
+            },
             "Château de Vascoeuil": {
                 "lat": 49.44669332154633,
                 "lon": 1.3786983489990234
@@ -335,13 +367,17 @@
                 "lat": 44.5889,
                 "lon": -1.2140699999999924
             },
-            "Ecurie Aurmath": {
-                "lat": 48.76953285107461,
-                "lon": 0.260800643734342
+            "Etretat": {
+                "lat": 49.7074621,
+                "lon": 0.2031905
             },
             "Figueras": {
                 "lat": 42.2666314,
                 "lon": 2.9638434
+            },
+            "Fontainebleau": {
+                "lat": 48.409,
+                "lon": 2.7017399999999725
             },
             "Gallargues-le-Montueux": {
                 "lat": 43.7211,
@@ -359,6 +395,18 @@
                 "lat": 43.5605,
                 "lon": 4.085100000000011
             },
+            "Lammerville": {
+                "lat": 49.7965,
+                "lon": 0.9818749999999454
+            },
+            "Laval": {
+                "lat": 48.0710377,
+                "lon": -0.7723499
+            },
+            "Le Haras du Pin": {
+                "lat": 48.73898811621667,
+                "lon": 0.14698318275702604
+            },
             "Le Havre": {
                 "lat": 49.4938975,
                 "lon": 0.1079732
@@ -371,13 +419,37 @@
                 "lat": 45.0432,
                 "lon": 3.8849099999999908
             },
-            "Thiers": {
-                "lat": 45.855795,
-                "lon": 3.5489707
+            "Le sentier du verger (Torcy le Grand)": {
+                "lat": 49.802486282204825,
+                "lon": 1.1770715740667583
+            },
+            "Le Touquet-Paris-Plage": {
+                "lat": 50.5233,
+                "lon": 1.5852700000000368
+            },
+            "Le Tréport": {
+                "lat": 50.0591099,
+                "lon": 1.3827656
+            },
+            "Lisieux": {
+                "lat": 49.1460831,
+                "lon": 0.2255168
+            },
+            "Louvre-Lens": {
+                "lat": 50.43083991488346,
+                "lon": 2.804364475982652
+            },
+            "Montevrain": {
+                "lat": 48.8741286,
+                "lon": 2.748344
             },
             "Montpellier": {
                 "lat": 43.5985,
                 "lon": 3.8968700000000354
+            },
+            "Musée Emma Bovary": {
+                "lat": 49.47248159810543,
+                "lon": 1.344151496887207
             },
             "Narbonne": {
                 "lat": 43.1837661,
@@ -391,9 +463,29 @@
                 "lat": 48.8566101,
                 "lon": 2.3514992
             },
+            "Phare d'Ailly": {
+                "lat": 49.91598805822681,
+                "lon": 0.958481284490631
+            },
+            "Pourville": {
+                "lat": 49.916219,
+                "lon": 1.0304797
+            },
             "Puy de Dôme": {
                 "lat": 45.771799458104674,
                 "lon": 2.9626375827782567
+            },
+            "Quiberville": {
+                "lat": 49.8984,
+                "lon": 0.9194310000000314
+            },
+            "Rambouillet": {
+                "lat": 48.6437,
+                "lon": 1.8299200000000155
+            },
+            "Reims": {
+                "lat": 49.2577886,
+                "lon": 4.031926
             },
             "Rennes": {
                 "lat": 48.1113387,
@@ -407,17 +499,53 @@
                 "lat": 49.4404591,
                 "lon": 1.0939658
             },
+            "Saint-Lô": {
+                "lat": 49.1157004,
+                "lon": -1.0906637
+            },
+            "Saint-Malo": {
+                "lat": 48.6454528,
+                "lon": -2.015418
+            },
+            "Sainte-Marguerite-sur-Mer": {
+                "lat": 49.9072,
+                "lon": 0.9472439999999551
+            },
             "Saint-Valéry-sur-Somme": {
                 "lat": 50.1882,
                 "lon": 1.6294800000000578
+            },
+            "Strasbourg": {
+                "lat": 48.584614,
+                "lon": 7.7507127
+            },
+            "Thiers": {
+                "lat": 45.855795,
+                "lon": 3.5489707
             },
             "Valloire": {
                 "lat": 45.165058,
                 "lon": 6.4290103
             },
+            "Varengeville-sur-Mer": {
+                "lat": 49.9059,
+                "lon": 0.9946620000000621
+            },
             "Versailles": {
                 "lat": 48.8035403,
                 "lon": 2.1266886
+            },
+            "Veules-les-Roses": {
+                "lat": 49.8735,
+                "lon": 0.7994879999999966
+            },
+            "Vienne": {
+                "lat": 48.2083537,
+                "lon": 16.3725042
+            },
+            "Villa Savoye": {
+                "lat": 48.9244206,
+                "lon": 2.0282976
             },
             "Volcan de Lemptégy": {
                 "lat": 45.8154,
