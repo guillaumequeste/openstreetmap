@@ -31,6 +31,8 @@
             var catacombes = L.marker([48.833964, 2.3324924]).addTo(macarte);
             var cathedrale_sainte_trinite = L.marker([48.86188119477401, 2.301068542327812]).addTo(macarte);
             var centre_pompidou = L.marker([48.86062131486451, 2.35247186085212]).addTo(macarte);
+            var champ_de_mars = L.marker([48.85565166326895, 2.298588752746582]).addTo(macarte);
+            var champs_elysees = L.marker([48.87262793802567, 2.298660869038713]).addTo(macarte);
             var cite_du_cinema = L.marker([48.922640257476935, 2.336547374725342]).addTo(macarte);
             var coulee_verte = L.marker([48.84938276601615, 2.3714590072631836]).addTo(macarte);
             var eglise_saint_germain_des_pres = L.marker([48.85396450348454, 2.33434796333313]).addTo(macarte);
@@ -43,6 +45,8 @@
             var galeries_lafayette = L.marker([48.87369656788959, 2.330439465637255]).addTo(macarte);
             var galerie_vero_dodat = L.marker([48.8628, 2.340159999999969]).addTo(macarte);
             var galerie_vivienne = L.marker([48.8665963, 2.3401302]).addTo(macarte);
+            var gare_montparnasse = L.marker([48.841161677872485, 2.319732040987219]).addTo(macarte);
+            var gare_saint_lazare = L.marker([48.876302407887714, 2.3254001140594482]).addTo(macarte);
             var grande_arche = L.marker([48.89259960797655, 2.2361040115356445]).addTo(macarte);
             var jardin_palais_royal = L.marker([48.86498295934279, 2.337791919708252]).addTo(macarte);
             var jardin_tuileries = L.marker([48.86338786861697, 2.32785701751709]).addTo(macarte);
@@ -50,7 +54,12 @@
             var la_villette = L.marker([48.890628432806395, 2.390911502685526]).addTo(macarte);
             var les_halles = L.marker([48.8618542031241, 2.3469635847473]).addTo(macarte);
             var martyrium = L.marker([48.8840838, 2.3402373]).addTo(macarte);
+            var mosquee = L.marker([48.84184061330027, 2.3551789202239206]).addTo(macarte);
             var musee_carte = L.marker([48.8226911, 2.2734484]).addTo(macarte);
+            var musee_des_egouts = L.marker([48.86272243617286, 2.3023888852596883]).addTo(macarte);
+            var musee_d_orsay = L.marker([48.8599179, 2.3265828]).addTo(macarte);
+            var musee_du_parfum = L.marker([48.8714998, 2.314865]).addTo(macarte);
+            var musee_grevin = L.marker([48.8718365, 2.3420974]).addTo(macarte);
             var musee_jacquemart = L.marker([48.8753, 2.3107700000000477]).addTo(macarte);
             var louvre = L.marker([48.86062104200994, 2.337641716003418]).addTo(macarte);
             var notre_dame = L.marker([48.85295168692098, 2.3498513316543495]).addTo(macarte);
@@ -81,9 +90,11 @@
             var pont_neuf = L.marker([48.85784700362907, 2.341965436935425]).addTo(macarte);
             var pont_notre_dame = L.marker([48.856054031891276, 2.3485958576202393]).addTo(macarte);
             var promenade_petite_ceinture = L.marker([48.83678612235195, 2.277764081954956]).addTo(macarte);
+            var rue_des_thermopyles = L.marker([48.8329, 2.3184099999999717]).addTo(macarte);
             var sacre_coeur = L.marker([48.886210238849394, 2.3431308824621055]).addTo(macarte);
             var square_vert_galant = L.marker([48.85744790485559, 2.340282794923496]).addTo(macarte);
             var stade_jean_bouin = L.marker([48.8432317969697, 2.2529955311081267]).addTo(macarte);
+            var tour_montparnasse = L.marker([48.8420898, 2.3219569]).addTo(macarte);
 
             appartement.bindPopup(`<b>32 rue des Vinaigriers, appartement</b>`);
             arc_triomphe.bindPopup(`<b>Arc de Triomphe</b>`);
@@ -97,6 +108,8 @@
             catacombes.bindPopup(`<b>Catacombes</b>`);
             cathedrale_sainte_trinite.bindPopup(`<b>Cathédrale de la Sainte-Trinité</b>`);
             centre_pompidou.bindPopup(`<b>Centre Pompidou</b>`);
+            champ_de_mars.bindPopup(`<b>Champ de Mars</b>`);
+            champs_elysees.bindPopup(`<b>Avenue des Champs Elysées</b>`);
             cite_du_cinema.bindPopup(`<b>La cité du cinéma</b>`);
             coulee_verte.bindPopup(`<b>Coulée verte</b>`);
             eglise_saint_germain_des_pres.bindPopup(`<b>Eglise de Saint Germain des Prés</b>`);
@@ -109,6 +122,8 @@
             galeries_lafayette.bindPopup(`<b>Galeries Lafayette</b>`);
             galerie_vero_dodat.bindPopup(`<b>Galerie Véro-Dodat</b>`);
             galerie_vivienne.bindPopup(`<b>Galerie Vivienne</b>`);
+            gare_montparnasse.bindPopup(`<b>Gare Montparnasse</b>`);
+            gare_saint_lazare.bindPopup(`<b>Gare Saint-Lazare</b>`);
             grande_arche.bindPopup(`<b>Grande Arche de la Défense</b>`);
             jardin_palais_royal.bindPopup(`<b>Jardin du Palais Royal</b>`);
             jardin_tuileries.bindPopup(`<b>Jardin des Tuileries</b>`);
@@ -117,7 +132,12 @@
             les_halles.bindPopup(`<b>Les Halles</b>`);
             louvre.bindPopup(`<b>Musée du Louvre</b>`);
             martyrium.bindPopup(`<b>Martyrium de Saint-Denis</b>`);
+            mosquee.bindPopup(`<b>Grande Mosquée de Paris</b>`);
             musee_carte.bindPopup(`<b>Musée français de la carte à jouer</b>`);
+            musee_des_egouts.bindPopup(`<b>Musée des égoûts de Paris</b>`);
+            musee_d_orsay.bindPopup(`<b>Musée d'Orsay</b>`);
+            musee_du_parfum.bindPopup(`<b>Grand musée du parfum</b>`);
+            musee_grevin.bindPopup(`<b>Musée Grévin</b>`);
             musee_jacquemart.bindPopup(`<b>Musée Jacquemart-André</b>`);
             notre_dame.bindPopup(`<b>Cathédrale Notre-Dame de Paris</b>`);
             opera_garnier.bindPopup(`<b>Opéra Garnier</b>`);
@@ -146,9 +166,11 @@
             pont_neuf.bindPopup(`<b>Pont Neuf</b>`);
             pont_notre_dame.bindPopup(`<b>Pont Notre-Dame</b>`);
             promenade_petite_ceinture.bindPopup(`<b>Promenade de la Petite ceinture</b>`);
+            rue_des_thermopyles.bindPopup(`<b>Rue des Thermopyles</b>`);
             sacre_coeur.bindPopup(`<b>Sacré-Coeur</b>`);
             square_vert_galant.bindPopup(`<b>Square du Vert-Galant</b>`);
             stade_jean_bouin.bindPopup(`<b>Stade Jean Bouin</b>`);
+            tour_montparnasse.bindPopup(`<b>Tour Montparnasse</b>`);
         }
         window.onload = function() {
             initMap();
